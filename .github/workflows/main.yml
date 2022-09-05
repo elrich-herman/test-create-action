@@ -39,3 +39,11 @@ jobs:
           echo Is Git installed?
           git --version
           
+      - name: Trigger Workflow     
+        uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: Competitive-Capabilities-International
+          repo: tracc-explorer-services
+          workflow_file_name: dev-ecr-push.yml
+
+          
