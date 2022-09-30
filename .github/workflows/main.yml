@@ -35,6 +35,19 @@ jobs:
           echo Is Git installed?
           git --version
           
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1 # Configure with AWS Credentials
+        with:
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_NPR_V8_DEV }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_NPR_V8_DEV }}
+         aws-region: ${{ secrets.AWS_REGION }}         
+         
+      - name: Get eks cluster
+        run: |
+         aws sts get-caller-identity      
+         aws eks --region eu-west-1 update-kubeconfig --name euw1-dev-v8-eks  
+         kubectl get svc
+          
 
 
           
