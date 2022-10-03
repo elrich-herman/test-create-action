@@ -46,7 +46,7 @@ jobs:
         run: |
          aws sts get-caller-identity      
          aws eks --region eu-west-1 update-kubeconfig --name euw1-dev-v8-eks  
-         kubectl get svc
+         kubectl get pods
           
 
 
