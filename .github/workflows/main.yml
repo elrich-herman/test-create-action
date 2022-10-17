@@ -45,7 +45,8 @@ jobs:
       - name: Get eks cluster
         run: |
          aws sts get-caller-identity      
-         aws eks --region eu-west-1 update-kubeconfig --name euw1-dev-v8-eks  
+         aws eks --region eu-west-1 update-kubeconfig --name euw1-dev-v8-eks
+         aws --region eu-west-1 eks get-token --cluster-name euw1-dev-v8-eks
          kubectl get pods
           
 
